@@ -1,0 +1,22 @@
+{
+  "name": "election-scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "db:create": "createdb election_live_dev",
+    "db:drop": "dropdb election_live_dev",
+    "db:migrate": "npx knex migrate:latest",
+    "db:setup": "npm run db:create && npm run db:migrate",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "knex": "^0.21.12",
+    "knex-on-conflict-do-nothing": "^1.0.0",
+    "node-fetch": "^2.6.1",
+    "pg": "^8.4.2"
+  }
+}
