@@ -15,13 +15,13 @@ async function processStates(knex, states, pollingInterval) {
       log(`Fetching data for: ${stateName}`);
       await NYTimesAPI.insertStateData(knex, stateName);
     }
-  } catch(e) {
-    console.error('Error!')
+  } catch (e) {
+    console.error('Error!');
   }
 
   log(`Fetching again in ${pollingInterval / 1000} seconds`);
 
-  setTimeout(async () => {
+  setTimeout(async() => {
     processStates(knex, states);
   }, pollingInterval);
 }
@@ -32,5 +32,5 @@ if (userArgs.length < 1) {
   process.exit(1);
 }
 
-let pollingInterval = 60*1000;
+let pollingInterval = 60 * 1000;
 processStates(knex, userArgs, pollingInterval);

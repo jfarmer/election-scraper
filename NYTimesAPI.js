@@ -4,7 +4,7 @@ let TRUMP_CANDIDATE_KEY = 'trumpd';
 let BIDEN_CANDIDATE_KEY = 'bidenj';
 
 function getNYTimesURL(stateName) {
-  return `https://static01.nyt.com/elections-assets/2020/data/api/2020-11-03/state-page/${stateName}.json`
+  return `https://static01.nyt.com/elections-assets/2020/data/api/2020-11-03/state-page/${stateName}.json`;
 }
 
 async function fetchNYTimesData(stateName) {
@@ -36,7 +36,7 @@ async function getCandidateDataByState(stateName) {
     precincts_total: presidentialRace.precincts_total,
     trump_votes: trump.votes,
     biden_votes: biden.votes,
-  }
+  };
 }
 
 async function insertStateData(db, stateName) {
