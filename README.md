@@ -35,7 +35,7 @@ WITH net_live_results AS (
     biden_votes,
     LAG(biden_votes, -1) OVER (PARTITION BY state ORDER BY last_updated DESC) AS biden_votes_p,
     LAG(trump_votes, -1) OVER (PARTITION BY state ORDER BY last_updated DESC) AS trump_votes_p,
-    CAST(LAG(biden_votes - trump_votes, -1) OVER (PARTITION BY state ORDER BY last_updated DESC) AS DECIMAL(10,4)) AS net_biden_p
+    CAST(LAG(biden_votes - trump_votes, -1) OVER (PARTITION BY state ORDER BY last_updated DESC) AS DECIMAL(10,4)) AS net_biden_prev
   FROM live_results
 )
 
@@ -43,7 +43,7 @@ SELECT DISTINCT ON (state)
   last_updated,
   state,
   net_biden,
-  ROUND((net_biden - net_biden_p)/ABS(net_biden_p) * 100, 3) AS biden_pct_inc
+  ROUND((net_biden - net_biden_prev)/ABS(net_biden_prev) * 100, 3) AS biden_pct_inc
 FROM net_live_results
 ORDER BY state, last_updated DESC;
 ```
