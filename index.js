@@ -22,7 +22,7 @@ async function processStates(knex, states, pollingInterval) {
   log(`Fetching again in ${pollingInterval / 1000} seconds`);
 
   setTimeout(async() => {
-    processStates(knex, states);
+    processStates(knex, states, pollingInterval);
   }, pollingInterval);
 }
 
