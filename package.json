@@ -14,17 +14,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "knex": "^0.21.12",
+    "knex": "^2.4.2",
     "knex-on-conflict-do-nothing": "^1.0.0",
-    "node-fetch": "^2.6.1",
-    "pg": "^8.4.2"
+    "node-fetch": "^3.3.1",
+    "pg": "^8.10.0"
   },
   "devDependencies": {
-    "eslint": "^7.13.0",
-    "eslint-config-standard": "^16.0.1",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint": "^8.39.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.2"
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-standard": "^4.1.0"
   }
 }
